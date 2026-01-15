@@ -1,0 +1,27 @@
+.env
+*.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+*.egg-info/
+
+# Airflow
+logs/
+airflow.db
+airflow.cfg
+
+# Docker
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# Дані
+*.csv
+*.json
+raw_*.json
+cleaned_*.json
