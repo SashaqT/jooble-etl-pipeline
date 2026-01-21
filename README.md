@@ -40,19 +40,19 @@ Every 6 hours automatically:
 
 1\. Clone repository
 
-2\. Create `.env` file with API key:
+2\. Create `.env` file with API key
 
 ```
 
-JOOBLE\_API\_KEY=your\_key
+&nbsp;  JOOBLE\_API\_KEY=your\_key
 
 ```
 
-3\. Run:
+3\. Run
 
 ```bash
 
-docker-compose up -d
+&nbsp;  docker-compose up -d
 
 ```
 
@@ -72,11 +72,11 @@ docker-compose up -d
 
 ```
 
-\## 👤 Author
+
+
+\## Author
 
 
 
-\*\*Oleksandr Hudachek\*\*
-
-\- GitHub: \[@SashaqT](https://github.com/SashaqT)
+Oleksandr Hudachek
 
