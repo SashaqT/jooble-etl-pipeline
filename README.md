@@ -40,21 +40,25 @@ Every 6 hours automatically:
 
 1\. Clone repository
 
-2\. Create `.env` file with API key
+2\. Create `.env` file with API key:
 
 ```
 
-&nbsp;  JOOBLE\_API\_KEY=your\_key
+JOOBLE\_API\_KEY=your\_key
 
 ```
 
-3\. Run
+
+
+3\. Run:
 
 ```bash
 
-&nbsp;  docker-compose up -d
+docker-compose up -d
 
 ```
+
+
 
 4\. Open http://localhost:8080
 
