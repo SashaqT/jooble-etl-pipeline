@@ -1,18 +1,21 @@
+import os
 import psycopg2
 import csv
 import logging
+
 
 logging.basicConfig(level=logging.INFO)
 
 CSV_PATH = "/opt/airflow/scripts/cleaned_jooble_jobs.csv"
 
 DB_CONFIG = {
-    "host": "postgres",
-    "database": "airflow",
-    "user": "airflow",
-    "password": "airflow",
-    "port": 5432,
+    "host": os.getenv("DB_HOST"),
+    "database": os.getenv("DB_NAME"),
+    "user": os.getenv("DB_USER"),
+    "password": os.getenv("DB_PASSWORD"),
+    "port": int(os.getenv("DB_PORT", 5432)),
 }
+
 
 
 def load_and_validate():
@@ -20,10 +23,12 @@ def load_and_validate():
     logging.info("STARTING DATA LOAD")
     logging.info("=" * 50)
 
-    conn = psycopg2.connect(**DB_CONFIG)
-    cur = conn.cursor()
+    conn = None
+    cur = None
 
     try:
+        conn = psycopg2.connect(**DB_CONFIG)
+        cur = conn.cursor()
 
         cur.execute("TRUNCATE TABLE jooble_jobs;")
         logging.info("Table truncated")
@@ -78,5 +83,7 @@ def load_and_validate():
         raise
 
     finally:
-        cur.close()
-        conn.close()
+        if cur:
+            cur.close()
+        if conn:
+            conn.close()
